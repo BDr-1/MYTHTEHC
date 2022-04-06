@@ -6,7 +6,7 @@
 }
 :root{
     --main-color:#076474;
-    --main-color-alt:#044D5A;
+    --main-color-alt:hsl(189, 91%, 18%);
     --second-color:#F1C111;
     --main-transition:.3s;
     --main-padding-section:100px;
@@ -78,6 +78,22 @@ a{
 }
 
 
+
+/* Scroll bar style */
+::-webkit-scrollbar-thumb{
+    border-radius: 50px;
+    background-color:rgba(242, 194, 18, 0.637);
+  
+}
+::-webkit-scrollbar-track{
+       background-color: #f6f6f6;
+       box-shadow: 0 0 10px #ddd inset;
+}
+::-webkit-scrollbar{
+    width: 15px;
+    
+}
+
 /* Header */
 .header{
     /* background-color: var(--main-color-alt); */
@@ -143,6 +159,7 @@ li:hover{
    position: absolute;
    margin: 50px 50px 0 ;
    display: flex;
+   right: 0;
    flex-direction: column;
    text-align: center;
    justify-content: center;
@@ -170,6 +187,11 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 50%;
     transition: var(--main-transition);
 }
+.landing .contact-logo li:nth-child(2) i{
+    color: 	white;
+    border-radius: 50%;
+    transition: var(--main-transition);
+}
 .landing .contact-logo li:last-child i{
     color: white;
     border-radius: 50%;
@@ -177,6 +199,9 @@ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .landing .contact-logo li:first-child:hover{
    background-color:#25D366;
+}
+.landing .contact-logo li:nth-child(2):hover{
+   background-color:#1885bf;
 }
 .landing .contact-logo li:last-child:hover{
    background-color:#1DA1F2;
@@ -497,6 +522,7 @@ height: 105px;
         left: 50%;
         transform: translateX(-50%);
         width: 400px;
+        padding: 25px;
     }
     .landing .text p{
         margin-top: 20px;
@@ -665,6 +691,8 @@ height: 105px;
     .section .about .container .box{
         padding: 50px;
         height: 280px;
+        width: 300px;
+        margin: 0 auto;
     }
     .section .about .box .box-text span{
         font-size: 22px;
@@ -695,24 +723,37 @@ height: 105px;
    box-shadow:  0px 2px 15px rgb(0 0 0 / 20%);
 }
 .Achievement .box:nth-child(2){
-   border: 1px solid var(--second-color);
+   border: 2px solid var(--second-color);
 }
 /* .Achievement .box:not(:last-child){
     margin-bottom:50px;
 } */
-
+.Achievement .box .text{
+    width: 250px;
+   text-align: right;
+}
 .Achievement .box .text p{
     font-size: 22px;
     font-weight: 500;height: 50px;
     color: rgb(0, 0, 0);
     line-height: 1.5;
 }
+
+.Achievement .box .text span.num{
+    font-weight: bold;
+    margin: 0 5px; 
+    animation: span 2.5s infinite ease-in-out;
+    font-size: 25px;
+}
+
 .Achievement .container .box img{
     max-width:200px;
 }
 @media (max-width:500px){
     .Achievement .box{
        border: 1px solid var(--main-color);
+       width: 290px;
+       margin: 0 auto;
 }
 }
 /* Serv */
@@ -772,6 +813,15 @@ height: 105px;
     transition: var(--main-transition);
     border-top: 1px solid #d4d4d4;
 }
+ .serv .content p span i  {
+    position: absolute; 
+    padding: 4px 10px 0 0;
+    color: var(--second-color);
+    animation: ltr 1s ease-in-out infinite;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
 .serv .contact a{
     color: var(--main-color);
     font-weight: bold;
@@ -783,12 +833,12 @@ height: 105px;
     color: #eee;
     transition: var(--main-transition);
 }
-.serv .contact span{
+.serv .contact span.soon{
     font-weight: bold;
     font-size: 15px;
     color: var(--second-color);
     letter-spacing: 1px;
-    animation: span 2.5s infinite ease-in-out;
+    animation: span 1s ease infinite;
 }
 @keyframes span{
     0%,50%{
@@ -799,6 +849,20 @@ height: 105px;
     }
     100%,0%{
         color: var(--main-color);
+    }
+}
+@keyframes ltr{
+      0%,50%{
+        color: var(--main-color);
+          transform: translateX(0px); 
+    }
+    50%,100%{
+        color: var(--second-color);
+          transform: translateX(5px);
+    }
+    100%,0%{
+        color: var(--main-color);
+         transform: translateX(0px); 
     }
 }
 .serv .box img{
@@ -827,12 +891,25 @@ height: 105px;
     cursor: pointer;
     top: 30px;
     right: 22px; */
-/* } */ */
+/* } */ 
     /* .header .logo img{
         margin: -6px -13%;
     z-index: 1;
     width: 200px;
     } */
+    .Achievement .box .text {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.Achievement .container .box img {
+    margin-top: 20px;
+}
+    .Achievement .box .text p br {
+   display: none;
+}
+    .Achievement .box .text p span{
+    display: block;
+}
 .serv .dots-right img{
     width: 150px;
     right: -20px;
@@ -840,6 +917,10 @@ height: 105px;
 }
 .serv .dots-down{
     display: none;
+}
+.serv .container .box{
+    width: 290px;
+    margin: 0 auto;
 }
 .serv .box:nth-child(1){
     order: 5;
@@ -854,7 +935,15 @@ height: 105px;
        border: 1px solid var(--second-color);
 
 }
-
+.contact p span{
+    position: absolute; 
+    padding: 4px 10px 0 0;
+    color: var(--second-color);
+    animation: ltr 1s ease-in-out infinite;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+}
 }
 @media (max-width:992px){
     .section .about .dots-right,
@@ -907,6 +996,8 @@ height: 105px;
 .footer{
     background-color: var(--main-color);
     margin-top: 80px;
+    position: relative;
+    padding:0 30px 30px;
 }
 .footer .copy{
     color: white;
@@ -921,4 +1012,195 @@ height: 105px;
     font-weight: 800;
     font-family: 'Poppins', sans-serif;
 }
+.footer .contact-logo ul{
+   display: flex;
+   text-align: center;
+   justify-content: center;
+   align-items: center;
+   /* box-shadow: var(--second-color) 0px 20px 10px -30px inset, var(--main-color) 0px 108px 60px 40px inset; */
+}
+.footer .contact-logo li i{
+   color: white;
+   padding: 0 10px;
+   font-size: 20px;
+}
 
+
+/* Wrapper */
+.wrapper{
+    background-color: #ffffff;
+    width: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 30px;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 1;
+     border: 1px solid var(--second-color);
+box-shadow: 0px 0px 100px 50px rgb(0 0 0 / 20%);
+display: none;
+animation: startPop 0.5s ease-in-out;
+}
+@keyframes startPop {
+    0%{
+        top: 0%;
+        opacity: 0;
+    }
+    100%{
+        top: 50%;
+        opacity: 1;
+    }
+   0%{
+        top: 0%;
+        opacity: 0;
+    }
+}
+.wrapper.active{
+    display: block;
+}
+.wrapper .close i{
+    font-size: 35px;
+    color: red;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.wrapper header{
+    text-align: center;
+    margin: 0 0 50px;
+    color: var(--main-color);
+}
+.wrapper ul .box-text{
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+}
+.wrapper ul p{
+    color:#35455D;
+    font-size: 19px;
+    line-height: 1.5;
+    font-weight: normal;
+}
+.wrapper ul span{
+    color: var(--second-color);
+    font-size: 30px;
+    font-weight: normal;
+}
+.wrapper ul i{
+    margin-left: 15px;
+    color: var(--second-color);
+    
+}
+@media (max-width:1024px){
+    .wrapper{
+    width: 550px;
+    padding: 15px;
+}
+.wrapper .close i{
+    font-size: 25px;
+}
+.wrapper header{
+    margin:40px 0 0;
+}
+.wrapper header h1{
+   font-size: 25px;
+}
+.wrapper ul i{
+   font-size: 10px;
+    
+}
+.wrapper ul p{
+    font-size: 16px;
+}
+
+.wrapper ul p span{
+  font-weight: bold;
+  font-size: 16px;
+}
+.wrapper ul p span:nth-child(5){
+  color: var(--second-color);
+}
+.wrapper .box-text{
+    margin-bottom: -15px;
+}
+.wrapper .box-text:last-child{
+    margin-bottom: 5px;
+}
+}
+@media (max-width:900px){
+    .wrapper{
+    width: 550px;
+    padding: 15px;
+}
+.wrapper .close i{
+    font-size: 25px;
+}
+.wrapper header{
+    margin:40px 0 0;
+}
+.wrapper header h1{
+   font-size: 25px;
+}
+.wrapper ul i{
+   font-size: 10px;
+    
+}
+.wrapper ul p{
+    font-size: 16px;
+}
+
+.wrapper ul p span{
+  font-weight: bold;
+  font-size: 16px;
+}
+.wrapper ul p span:nth-child(5){
+  color: var(--second-color);
+}
+.wrapper .box-text{
+    margin-bottom: -15px;
+}
+.wrapper .box-text:last-child{
+    margin-bottom: 5px;
+}
+}
+@media (max-width:500px){
+    .wrapper{
+    width: 350px;
+    padding: 15px;
+}
+.wrapper .close i{
+    font-size: 25px;
+}
+.wrapper header{
+    margin:40px 0 0;
+}
+.wrapper header h1{
+   font-size: 25px;
+}
+.wrapper ul i{
+   font-size: 10px;
+    
+}
+.wrapper ul p{
+    font-size: 16px;
+}
+.wrapper ul p br{
+    display: none;
+}
+.wrapper ul p span{
+  font-weight: bold;
+  font-size: 16px;
+}
+.wrapper ul p span:nth-child(5){
+  color: white;
+}
+.wrapper .box-text{
+    margin-bottom: -15px;
+}
+.wrapper .box-text:last-child{
+    margin-bottom: 5px;
+}
+}
